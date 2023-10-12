@@ -15,9 +15,10 @@ def test_remove_item():
 
     login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
     login_button.click()
+    time.sleep(3)
 
     # Сохранение в переменную text_before названия добавляемого товара
-    text_before = driver.find_element(By.CSS_SELECTOR, "a[id = 'item_4_title_link'] > div[class='inventory_item_name']").text
+    text_before = driver.find_element(By.CSS_SELECTOR, "#item_4_title_link > div").text
 
     # Добавление в корзину
     button_add = driver.find_element(By.CSS_SELECTOR, "button[data-test='add-to-cart-sauce-labs-backpack']")
@@ -30,7 +31,7 @@ def test_remove_item():
     time.sleep(2)
 
     # Сохранение в переменную text_after названия добавленного товара
-    text_after = driver.find_element(By.CSS_SELECTOR, "a[id = 'item_4_title_link'] > div[class='inventory_item_name']").text
+    text_after = driver.find_element(By.CSS_SELECTOR, "#item_4_title_link > div").text
     assert text_before == text_after
     time.sleep(2)
 
